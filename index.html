@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FotoSegura — Cuidado com suas fotos!</title>
+  <meta name="description" content="Aprenda de um jeito divertido como compartilhar fotos com segurança na internet. Projeto de extensão universitária — Squad 8.">
+  <meta name="theme-color" content="#2F5BFF">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Fontes: Baloo 2 (títulos, arredondada) + Nunito (texto). Se estiver offline, o CSS usa fontes do sistema. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Mascote (símbolo reutilizável em vários pontos do site) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="mascote" viewBox="0 0 200 200">
+      <circle cx="14" cy="120" r="13" fill="#FFC42E" stroke="#1B2350" stroke-width="5"/>
+      <circle cx="186" cy="120" r="13" fill="#FFC42E" stroke="#1B2350" stroke-width="5"/>
+      <rect x="62" y="22" width="56" height="34" rx="12" fill="#FFC42E" stroke="#1B2350" stroke-width="5"/>
+      <circle cx="148" cy="40" r="10" fill="#fff" stroke="#1B2350" stroke-width="5"/>
+      <rect x="18" y="44" width="164" height="128" rx="36" fill="#2F5BFF" stroke="#1B2350" stroke-width="5"/>
+      <circle cx="100" cy="102" r="42" fill="#fff" stroke="#1B2350" stroke-width="5"/>
+      <circle cx="100" cy="102" r="26" fill="#1B2350"/>
+      <circle cx="91" cy="93" r="8" fill="#fff"/>
+      <circle cx="112" cy="112" r="4" fill="#fff"/>
+      <circle cx="42" cy="134" r="9" fill="#FF8A8A" opacity=".85"/>
+      <circle cx="158" cy="134" r="9" fill="#FF8A8A" opacity=".85"/>
+      <path d="M80 154 Q100 170 120 154" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M32 58 h26 v18 q0 14 -13 20 q-13 -6 -13 -20z" fill="#22B07D" stroke="#1B2350" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M39 74 l5 5 l9 -11" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
+
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ============ CABEÇALHO ============ -->
+  <header class="topo" id="topo">
+    <div class="topo__in">
+      <a class="marca" href="#inicio" aria-label="FotoSegura — ir para o início">
+        <svg class="marca__icone" viewBox="0 0 200 200" aria-hidden="true"><use href="#mascote"/></svg>
+        <span class="marca__nome">Foto<span>Segura</span></span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">
+        <span class="menu-btn__linhas" aria-hidden="true"></span>
+        <span class="sr-only">Abrir menu</span>
+      </button>
+
+      <nav class="menu" id="menu" aria-label="Menu principal">
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#video">Vídeo</a></li>
+          <li><a href="#segredos">Segredos</a></li>
+          <li><a href="#regras">Regras</a></li>
+          <li><a href="#perigos">Perigos</a></li>
+          <li><a href="#quiz">Quiz</a></li>
+          <li><a href="#guia">Guia</a></li>
+          <li><a href="#ajuda">Ajuda</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- ============ 1. BOAS-VINDAS ============ -->
+    <section class="sec hero" id="inicio" aria-labelledby="h-hero">
+      <div class="wrap hero__grid">
+        <div class="hero__texto">
+          <h1 id="h-hero">Cuidado com suas Fotos!</h1>
+          <p class="hero__lead">Uma foto pode contar mais do que você imagina. Vamos descobrir juntos como compartilhar fotos com segurança?</p>
+          <div class="hero__botoes">
+            <a class="btn btn--azul" href="#video">Assistir ao vídeo</a>
+            <a class="btn btn--branco" href="#quiz">Fazer o quiz</a>
+          </div>
+        </div>
+
+        <!-- Visor de câmera com o mascote -->
+        <div class="visor" aria-hidden="true">
+          <span class="visor__canto visor__canto--a"></span>
+          <span class="visor__canto visor__canto--b"></span>
+          <span class="visor__canto visor__canto--c"></span>
+          <span class="visor__canto visor__canto--d"></span>
+          <span class="visor__sol"></span>
+          <span class="visor__nuvem visor__nuvem--1"></span>
+          <span class="visor__nuvem visor__nuvem--2"></span>
+          <svg class="visor__mascote" viewBox="0 0 200 200"><use href="#mascote"/></svg>
+          <p class="visor__selo"><span>🛡️</span> <strong>Modo seguro ativado!</strong> Suas fotos estão protegidas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2. VÍDEO ============ -->
+    <section class="sec sec--sol" id="video" aria-labelledby="h-video">
+      <div class="wrap">
+        <header class="sec__cab">
+          <h2 id="h-video">O Segredo por Trás da Foto</h2>
+          <p class="lead">Vem com o Théo descobrir o que uma foto pode contar. Dura menos de 3 minutinhos!</p>
+        </header>
+
+        <div class="player" id="player">
+          <div class="player__palco" id="palco" role="img" aria-label="Cena do vídeo"></div>
+          <button class="player__grande" id="btnGrande" type="button">
+            <span class="player__grande-icone" aria-hidden="true">▶</span>
+            <span id="btnGrandeTxt">Assistir ao vídeo</span>
+          </button>
+          <p class="player__legenda" id="legenda" aria-live="off"></p>
+
+          <div class="player__barra">
+            <button class="ctl" id="btnPlay" type="button" aria-label="Assistir">▶</button>
+            <button class="ctl" id="btnAnt" type="button" aria-label="Cena anterior">⏮</button>
+            <button class="ctl" id="btnProx" type="button" aria-label="Próxima cena">⏭</button>
+            <input class="player__range" id="range" type="range" min="0" max="170" step="1" value="0" aria-label="Posição do vídeo">
+            <span class="player__tempo" id="tempo">0:00 / 2:50</span>
+            <button class="ctl ctl--texto" id="btnVoz" type="button" aria-pressed="false">🔊 Ouvir narração</button>
+          </div>
+        </div>
+
+        <ol class="cenas" id="listaCenas" aria-label="Cenas do vídeo"></ol>
+
+        <div class="lembrar card">
+          <h3>Para lembrar do vídeo</h3>
+          <ul>
+            <li>Pense antes de compartilhar.</li>
+            <li>Deixe sua conta no privado.</li>
+            <li>Fale com um adulto de confiança.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. O QUE A FOTO REVELA + CARDS ============ -->
+    <section class="sec sec--ceu" id="segredos" aria-labelledby="h-segredos">
+      <div class="wrap">
+        <header class="sec__cab">
+          <h2 id="h-segredos">O que a sua foto pode revelar</h2>
+          <p class="lead">Você sabia que uma foto pode “contar segredos” sem você perceber? Olha só! Toque nas bolinhas vermelhas da foto do Théo.</p>
+        </header>
+
+        <div class="segredos">
+          <figure class="polaroid">
+            <div class="polaroid__foto" id="fotoCena"></div>
+            <figcaption>Foto do Théo</figcaption>
+          </figure>
+
+          <div class="segredos__lado">
+            <p class="contador" id="contador" aria-live="polite">0 de 4 segredos descobertos</p>
+            <ul class="lista-segredos" id="listaSegredos"></ul>
+            <div class="balao" id="balao" aria-live="polite">
+              <svg class="balao__mascote" viewBox="0 0 200 200" aria-hidden="true"><use href="#mascote"/></svg>
+              <p id="balaoTxt">Toque em uma bolinha da foto para descobrir o que ela conta.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="pare">Por isso, antes de compartilhar, pare e pense: <strong>“o que essa foto está mostrando além de mim?”</strong></p>
+
+        <h3 class="sub">Para entender melhor</h3>
+        <div class="conceitos" id="conceitos"></div>
+      </div>
+    </section>
+
+    <!-- ============ 4. REGRAS DE OURO ============ -->
+    <section class="sec sec--branco" id="regras" aria-labelledby="h-regras">
+      <div class="wrap">
+        <header class="sec__cab">
+          <h2 id="h-regras">Regras de Ouro</h2>
+          <p class="lead">5 dicas para compartilhar fotos com segurança. Toque em uma regra para ver como fazer.</p>
+        </header>
+
+        <ol class="regras" id="listaRegras"></ol>
+
+        <h3 class="sub">Ajustes extras (faça junto com um adulto)</h3>
+        <div class="extras" id="extras"></div>
+      </div>
+    </section>
+
+    <!-- ============ 5. ALERTA DE PERIGOS ============ -->
+    <section class="sec sec--alerta" id="perigos" aria-labelledby="h-perigos">
+      <div class="wrap">
+        <header class="sec__cab">
+          <h2 id="h-perigos">Fique de olho!</h2>
+          <p class="lead">Estas são as situações em que precisamos ter mais cuidado. Toque em um cartão para saber mais.</p>
+        </header>
+
+        <div class="perigos" id="listaPerigos"></div>
+
+        <div class="sos card">
+          <div class="sos__icone" aria-hidden="true">SOS</div>
+          <div class="sos__texto">
+            <h3>Em caso de emergência, um adulto pode ligar</h3>
+            <p>Disque 100 — denúncias de violações contra crianças e adolescentes (gratuito, 24h).</p>
+          </div>
+          <a class="btn btn--coral" href="tel:100">Disque 100</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. QUIZ ============ -->
+    <section class="sec sec--ceu" id="quiz" aria-labelledby="h-quiz">
+      <div class="wrap wrap--estreito">
+        <header class="sec__cab">
+          <h2 id="h-quiz">Posso compartilhar essa foto?</h2>
+          <p class="lead">Teste o que você aprendeu. Escolha a resposta certa!</p>
+        </header>
+        <div class="quiz card" id="quizRoot"></div>
+      </div>
+    </section>
+
+    <!-- ============ 7. CHECKLIST ============ -->
+    <section class="sec sec--menta" id="guia" aria-labelledby="h-guia">
+      <div class="wrap wrap--estreito">
+        <header class="sec__cab">
+          <h2 id="h-guia">Checklist: você está protegido?</h2>
+          <p class="lead">Marque cada item que você já faz. Ainda não usa redes sociais? Sem problema: marque quando entender como funciona.</p>
+        </header>
+
+        <div class="progresso card">
+          <div class="progresso__topo">
+            <strong>Seu progresso</strong>
+            <span class="progresso__num" id="progNum" aria-live="polite">0/7</span>
+            <span class="progresso__planta" id="progPlanta" aria-hidden="true">🌱</span>
+          </div>
+          <div class="barra" role="progressbar" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" aria-label="Itens do checklist marcados" id="progBarra">
+            <div class="barra__cheia" id="progCheia"></div>
+          </div>
+          <p class="progresso__msg" id="progMsg">Vamos começar? Marque o primeiro item.</p>
+        </div>
+
+        <ul class="checklist" id="listaChecklist"></ul>
+        <button class="btn btn--branco btn--pequeno" id="limparChecklist" type="button">Limpar marcações</button>
+      </div>
+    </section>
+
+    <!-- ============ 8. PEÇA AJUDA + ENCERRAMENTO ============ -->
+    <section class="sec sec--sol" id="ajuda" aria-labelledby="h-ajuda">
+      <div class="wrap">
+        <div class="ajuda">
+          <div class="ajuda__card card">
+            <svg class="ajuda__mascote" viewBox="0 0 200 200" aria-hidden="true"><use href="#mascote"/></svg>
+            <div>
+              <h2 id="h-ajuda">Peça ajuda!</h2>
+              <p>Se uma foto te deixou com dúvida, se alguém te pediu uma foto de um jeito estranho, ou se você já enviou algo e se arrependeu: <strong>conte para um adulto de confiança.</strong></p>
+              <p class="ajuda__coragem">Você não fez nada de errado em pedir ajuda — pedir ajuda é ser corajoso(a)!</p>
+              <p class="ajuda__quem"><span>Fale com:</span> seus pais ou responsáveis · seu(sua) professor(a) · outro adulto em quem você confia.</p>
+            </div>
+          </div>
+
+          <!-- Cartão-resumo para mostrar a um adulto -->
+          <article class="cartao" id="cartao" aria-labelledby="h-cartao">
+            <svg class="cartao__mascote" viewBox="0 0 200 200" aria-hidden="true"><use href="#mascote"/></svg>
+            <h3 id="h-cartao">Minhas 3 regras de ouro</h3>
+            <ol>
+              <li>Antes de enviar uma foto, eu <strong>paro e penso</strong>.</li>
+              <li>Só envio fotos para quem eu <strong>conheço de verdade</strong>.</li>
+              <li>Na dúvida, eu <strong>conto para um adulto</strong> de confiança.</li>
+            </ol>
+            <p class="cartao__rodape">FotoSegura · Privacidade também é coisa de criança</p>
+          </article>
+        </div>
+
+        <div class="fecho">
+          <p>Agora você já sabe cuidar melhor das suas fotos! 🎉</p>
+          <div class="fecho__botoes">
+            <button class="btn btn--azul" id="btnImprimir" type="button">Imprimir meu cartão</button>
+            <a class="btn btn--branco" href="#inicio">Voltar ao início</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ RODAPÉ ============ -->
+  <footer class="rodape">
+    <div class="wrap rodape__grid">
+      <div>
+        <a class="marca marca--clara" href="#inicio">
+          <svg class="marca__icone" viewBox="0 0 200 200" aria-hidden="true"><use href="#mascote"/></svg>
+          <span class="marca__nome">Foto<span>Segura</span></span>
+        </a>
+        <p class="rodape__desc">Projeto de extensão universitária sobre privacidade e compartilhamento de fotos, feito para crianças.</p>
+      </div>
+
+      <nav aria-label="Atalhos do rodapé">
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="#video">Vídeo</a></li>
+          <li><a href="#regras">Regras de Ouro</a></li>
+          <li><a href="#perigos">Perigos</a></li>
+          <li><a href="#quiz">Quiz</a></li>
+          <li><a href="#guia">Checklist</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h3>Para pais e professores</h3>
+        <ul class="rodape__fontes">
+          <li><a href="https://cetic.br/pt/pesquisa/kids-online/" target="_blank" rel="noopener">TIC Kids Online Brasil (CGI.br / NIC.br)</a></li>
+          <li><a href="https://safernet.org.br" target="_blank" rel="noopener">SaferNet Brasil</a></li>
+          <li><a href="https://www.unicef.org/brazil" target="_blank" rel="noopener">UNICEF Brasil</a></li>
+          <li><a href="https://cartilha.cert.br" target="_blank" rel="noopener">Cartilha de Segurança para Internet</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap rodape__fim">
+      <p>Projeto de Extensão Universitária · Squad 8 · <span id="ano">2026</span></p>
+      <p>Privacidade digital é um direito de todos 🛡️</p>
+    </div>
+  </footer>
+
+  <noscript>
+    <p class="noscript">Para ver o vídeo, o quiz e o checklist, ative o JavaScript no seu navegador.</p>
+  </noscript>
+
+  <script src="js/data.js"></script>
+  <script src="js/scenes.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
