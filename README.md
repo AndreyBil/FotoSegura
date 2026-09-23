@@ -1,2 +1,2 @@
 # FotoSegura
-Projeto de extensão
+Site criado para um projeto de extensão
