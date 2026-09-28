@@ -5,8 +5,8 @@
    dá para trocar estas funções por <img src="..."> sem mexer no resto.
    ===================================================================== */
 
-const INK = "#1B2350";
-const COR = { azul: "#2F5BFF", sol: "#FFC42E", menta: "#22B07D", coral: "#FF5A5F", coralEscuro: "#C8323A", violeta: "#7B4DFF", ceu: "#BFE3FF" };
+const INK = "#1E293B"; // Azul Noturno (paleta oficial do site, Sprint 4)
+const COR = { azul: "#4EA8DE", sol: "#FFC83B", menta: "#2EC4B6", coral: "#FF7A59", coralEscuro: "#D9531F", violeta: "#2EC4B6", ceu: "#CFE9F9" };
 const FONTE_TITULO = "'Baloo 2','Trebuchet MS',sans-serif";
 const FONTE_TEXTO = "'Nunito','Trebuchet MS',sans-serif";
 

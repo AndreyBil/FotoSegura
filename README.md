@@ -1,4 +1,13 @@
-# FotoSegura — MVP (Squad 8)
+# FotoSegura — Módulo Integrado v1 (Squad 8)
+
+> **Sprint 4 — Integração ao design system.** Este site já reflete as mudanças
+> descritas no relatório "Módulo Integrado (v1) e 1ª Versão do Artigo Científico":
+> paleta oficial do site, grid de 12 colunas, navegação com os rótulos definidos
+> pela squad de integração e quiz com 5 perguntas. Detalhes no final deste arquivo,
+> em **"Mudanças da Sprint 4"**.
+>
+> URL interna prevista no site principal: `/trilha-criancas/fotos-e-privacidade`
+> (este pacote é o módulo isolado, pronto para ser publicado nesse endereço).
 
 Módulo educativo sobre **privacidade e compartilhamento de fotos** para crianças de 8 a 11 anos.
 Feito só com **HTML, CSS e JavaScript puro** (sem bibliotecas, sem build).
@@ -73,3 +82,57 @@ respeito a `prefers-reduced-motion`.
 ## Salvamento no navegador
 
 O progresso do checklist e a melhor pontuação do quiz ficam no `localStorage` do navegador (nada é enviado a servidor).
+
+---
+
+## Mudanças da Sprint 4 (Integração ao Design System)
+
+Com base no relatório "Módulo Integrado (v1) e 1ª Versão do Artigo Científico", este pacote recebeu:
+
+### 1. Paleta oficial do site
+As variáveis de cor em `css/style.css` (bloco `:root`) passaram a usar os 6 tons
+definidos pela squad de integração: Amarelo Vivo `#FFC83B`, Laranja Amigável `#FF7A59`,
+Azul Céu `#4EA8DE`, Verde Turquesa `#2EC4B6`, Creme Suave `#FFF9E6` e Azul Noturno `#1E293B`.
+Os **nomes** das variáveis antigas (`--sol`, `--coral`, `--menta`…) foram mantidos para não
+quebrar nada; só os **valores hexadecimais** mudaram. As mesmas cores foram replicadas no
+mascote (SVG no `index.html`), no favicon e nas ilustrações do vídeo (`js/scenes.js`).
+
+Dois ajustes de contraste foram feitos para cumprir o padrão de acessibilidade do site:
+- O botão primário (`.btn--azul`) usa fundo Azul Noturno (não Azul Céu), porque texto
+  branco sobre Azul Céu puro não atinge contraste mínimo de leitura.
+- Links de texto usam `--azul-link` (#1C6EA4, um Azul Céu escurecido) em vez do Azul Céu
+  original, pelo mesmo motivo.
+
+### 2. Grid de 12 colunas
+Nova classe utilitária `.grid12` em `css/style.css`, aplicada aos cards de "O que é
+privacidade digital?" (4 cards, 3 colunas cada em telas grandes), aos "Ajustes extras" e
+aos cards de "Perigos" (3 cards, 4 colunas cada). Em celular, todos os cards empilham em
+1 coluna automaticamente.
+
+### 3. Navegação global
+O menu principal agora usa exatamente os rótulos do relatório: **Início · O que é
+privacidade · Dicas · Perigos · Quiz · Guia**. A antiga seção "O que a sua foto pode
+revelar" (foto interativa) passou a fazer parte da seção **O que é privacidade**, junto
+com os 4 cards conceituais — como no wireframe original da Sprint 1. A seção de Regras
+de Ouro é o destino do item **Dicas**. As seções de Vídeo e Peça Ajuda continuam na
+página (acessíveis pelos botões do topo e pelo rodapé), só não aparecem mais no menu
+principal, seguindo a lista oficial.
+
+### 4. Quiz com 5 perguntas
+Reduzido de 6 para 5 perguntas, como descrito no relatório ("quiz funcional com 5
+perguntas e pontuação final exibida ao término"). A pergunta removida (sobre já ter
+enviado uma foto e se arrepender) tinha o tema já coberto na seção Peça Ajuda.
+
+### 5. Player de vídeo
+Já estava de acordo com as boas práticas citadas (legendas sempre visíveis, sem
+reprodução automática) — nenhuma mudança necessária aqui além das cores.
+
+### Pendências que o relatório já lista para a Sprint 5 (não alteradas agora)
+- Ajuste fino de responsividade em telas muito pequenas (< 360px).
+- Revisão de contraste em dois cards de ícone.
+
+Essas duas ficaram explicitamente marcadas como próximo passo no documento da Sprint 4,
+então não foram tratadas neste pacote — mas a nova paleta já reduz parte do problema de
+contraste, já que todas as combinações de cor de texto usadas agora têm razão de
+contraste ≥ 4.5:1 (texto normal) ou ≥ 3:1 (texto grande em negrito), com exceção dos
+dois cards que o próprio relatório já sinalizou para revisão futura.

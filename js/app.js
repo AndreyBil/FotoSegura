@@ -400,7 +400,7 @@
           <p class="resultado__melhor">Sua melhor pontuação: ${melhor} de ${n}</p>
           <div class="quiz__acoes">
             <button type="button" class="btn btn--azul" id="qDeNovo">Jogar de novo</button>
-            <a class="btn btn--branco" href="#regras">Rever as regras</a>
+            <a class="btn btn--branco" href="#dicas">Rever as regras</a>
             <a class="btn btn--branco" href="#guia">Ir para o checklist</a>
           </div>
         </div>`;

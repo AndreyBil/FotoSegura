@@ -1,3 +1,13 @@
+<!--
+  FotoSegura — Módulo "Privacidade e Compartilhamento de Fotos" (trilha Crianças)
+  Squad 8 · Projeto de Extensão "Segurança da Informação: Idosos e Crianças"
+
+  Sprint 4 — Módulo Integrado (v1):
+  · URL interna prevista no site principal: /trilha-criancas/fotos-e-privacidade
+  · Cores, grid (12 colunas) e navegação adaptados ao design system global do site
+  · Vídeo publicado no player padrão, com legendas sempre visíveis e autoplay desativado
+  · Ver README.md para o mapeamento completo de mudanças e pendências da Sprint 5
+-->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -5,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FotoSegura — Cuidado com suas fotos!</title>
   <meta name="description" content="Aprenda de um jeito divertido como compartilhar fotos com segurança na internet. Projeto de extensão universitária — Squad 8.">
-  <meta name="theme-color" content="#2F5BFF">
+  <meta name="theme-color" content="#4EA8DE">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
   <!-- Fontes: Baloo 2 (títulos, arredondada) + Nunito (texto). Se estiver offline, o CSS usa fontes do sistema. -->
@@ -20,19 +30,19 @@
   <!-- Mascote (símbolo reutilizável em vários pontos do site) -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="mascote" viewBox="0 0 200 200">
-      <circle cx="14" cy="120" r="13" fill="#FFC42E" stroke="#1B2350" stroke-width="5"/>
-      <circle cx="186" cy="120" r="13" fill="#FFC42E" stroke="#1B2350" stroke-width="5"/>
-      <rect x="62" y="22" width="56" height="34" rx="12" fill="#FFC42E" stroke="#1B2350" stroke-width="5"/>
-      <circle cx="148" cy="40" r="10" fill="#fff" stroke="#1B2350" stroke-width="5"/>
-      <rect x="18" y="44" width="164" height="128" rx="36" fill="#2F5BFF" stroke="#1B2350" stroke-width="5"/>
-      <circle cx="100" cy="102" r="42" fill="#fff" stroke="#1B2350" stroke-width="5"/>
-      <circle cx="100" cy="102" r="26" fill="#1B2350"/>
+      <circle cx="14" cy="120" r="13" fill="#FFC83B" stroke="#1E293B" stroke-width="5"/>
+      <circle cx="186" cy="120" r="13" fill="#FFC83B" stroke="#1E293B" stroke-width="5"/>
+      <rect x="62" y="22" width="56" height="34" rx="12" fill="#FFC83B" stroke="#1E293B" stroke-width="5"/>
+      <circle cx="148" cy="40" r="10" fill="#fff" stroke="#1E293B" stroke-width="5"/>
+      <rect x="18" y="44" width="164" height="128" rx="36" fill="#4EA8DE" stroke="#1E293B" stroke-width="5"/>
+      <circle cx="100" cy="102" r="42" fill="#fff" stroke="#1E293B" stroke-width="5"/>
+      <circle cx="100" cy="102" r="26" fill="#1E293B"/>
       <circle cx="91" cy="93" r="8" fill="#fff"/>
       <circle cx="112" cy="112" r="4" fill="#fff"/>
       <circle cx="42" cy="134" r="9" fill="#FF8A8A" opacity=".85"/>
       <circle cx="158" cy="134" r="9" fill="#FF8A8A" opacity=".85"/>
       <path d="M80 154 Q100 170 120 154" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <path d="M32 58 h26 v18 q0 14 -13 20 q-13 -6 -13 -20z" fill="#22B07D" stroke="#1B2350" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M32 58 h26 v18 q0 14 -13 20 q-13 -6 -13 -20z" fill="#2EC4B6" stroke="#1E293B" stroke-width="4" stroke-linejoin="round"/>
       <path d="M39 74 l5 5 l9 -11" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
   </svg>
@@ -55,13 +65,11 @@
       <nav class="menu" id="menu" aria-label="Menu principal">
         <ul>
           <li><a href="#inicio">Início</a></li>
-          <li><a href="#video">Vídeo</a></li>
-          <li><a href="#segredos">Segredos</a></li>
-          <li><a href="#regras">Regras</a></li>
+          <li><a href="#privacidade">O que é privacidade</a></li>
+          <li><a href="#dicas">Dicas</a></li>
           <li><a href="#perigos">Perigos</a></li>
           <li><a href="#quiz">Quiz</a></li>
           <li><a href="#guia">Guia</a></li>
-          <li><a href="#ajuda">Ajuda</a></li>
         </ul>
       </nav>
     </div>
@@ -136,12 +144,17 @@
     </section>
 
     <!-- ============ 3. O QUE A FOTO REVELA + CARDS ============ -->
-    <section class="sec sec--ceu" id="segredos" aria-labelledby="h-segredos">
+    <section class="sec sec--ceu" id="privacidade" aria-labelledby="h-privacidade">
       <div class="wrap">
         <header class="sec__cab">
-          <h2 id="h-segredos">O que a sua foto pode revelar</h2>
-          <p class="lead">Você sabia que uma foto pode “contar segredos” sem você perceber? Olha só! Toque nas bolinhas vermelhas da foto do Théo.</p>
+          <h2 id="h-privacidade">O que é privacidade digital?</h2>
+          <p class="lead">Privacidade é o direito de decidir quem pode ver as suas coisas — inclusive as suas fotos. Veja os quatro conceitos básicos:</p>
         </header>
+
+        <div class="conceitos grid12" id="conceitos"></div>
+
+        <h3 class="sub">O que a sua foto pode revelar</h3>
+        <p class="lead">Você sabia que uma foto pode “contar segredos” sem você perceber? Olha só! Toque nas bolinhas vermelhas da foto do Théo.</p>
 
         <div class="segredos">
           <figure class="polaroid">
@@ -160,24 +173,21 @@
         </div>
 
         <p class="pare">Por isso, antes de compartilhar, pare e pense: <strong>“o que essa foto está mostrando além de mim?”</strong></p>
-
-        <h3 class="sub">Para entender melhor</h3>
-        <div class="conceitos" id="conceitos"></div>
       </div>
     </section>
 
-    <!-- ============ 4. REGRAS DE OURO ============ -->
-    <section class="sec sec--branco" id="regras" aria-labelledby="h-regras">
+    <!-- ============ 4. DICAS (REGRAS DE OURO) ============ -->
+    <section class="sec sec--branco" id="dicas" aria-labelledby="h-dicas">
       <div class="wrap">
         <header class="sec__cab">
-          <h2 id="h-regras">Regras de Ouro</h2>
+          <h2 id="h-dicas">Regras de Ouro</h2>
           <p class="lead">5 dicas para compartilhar fotos com segurança. Toque em uma regra para ver como fazer.</p>
         </header>
 
         <ol class="regras" id="listaRegras"></ol>
 
         <h3 class="sub">Ajustes extras (faça junto com um adulto)</h3>
-        <div class="extras" id="extras"></div>
+        <div class="extras grid12" id="extras"></div>
       </div>
     </section>
 
@@ -189,7 +199,7 @@
           <p class="lead">Estas são as situações em que precisamos ter mais cuidado. Toque em um cartão para saber mais.</p>
         </header>
 
-        <div class="perigos" id="listaPerigos"></div>
+        <div class="perigos grid12" id="listaPerigos"></div>
 
         <div class="sos card">
           <div class="sos__icone" aria-hidden="true">SOS</div>
@@ -291,10 +301,12 @@
         <h3>Navegação</h3>
         <ul>
           <li><a href="#video">Vídeo</a></li>
-          <li><a href="#regras">Regras de Ouro</a></li>
+          <li><a href="#privacidade">O que é privacidade</a></li>
+          <li><a href="#dicas">Regras de Ouro</a></li>
           <li><a href="#perigos">Perigos</a></li>
           <li><a href="#quiz">Quiz</a></li>
           <li><a href="#guia">Checklist</a></li>
+          <li><a href="#ajuda">Peça ajuda</a></li>
         </ul>
       </nav>
 

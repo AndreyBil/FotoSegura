@@ -138,13 +138,7 @@ const DATA = {
       pergunta: "Alguém fica insistindo: “manda só mais uma foto, prometo que ninguém vai ver!”. O que isso significa?",
       opcoes: ["É estranho: eu conto para um adulto", "Tudo bem, ele prometeu", "É uma brincadeira, posso mandar", "Devo responder para ele parar"],
       certa: 0,
-      explica: "Quando alguém insiste para você mandar uma foto, isso é estranho. Conte para um adulto!" },
-
-    { cena: "😟 📤 🤗",
-      pergunta: "Você mandou uma foto e se arrependeu. O que fazer?",
-      opcoes: ["Contar para um adulto de confiança, sem medo", "Esconder e não falar com ninguém", "Ficar quieto e torcer para dar certo", "Mandar mais fotos para compensar"],
-      certa: 0,
-      explica: "Você não fez nada de errado. Pedir ajuda é ser corajoso(a), e um adulto pode ajudar você!" }
+      explica: "Quando alguém insiste para você mandar uma foto, isso é estranho. Conte para um adulto!" }
   ],
 
   /* Checklist (do protótipo Figma) */

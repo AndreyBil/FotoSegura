@@ -11,22 +11,30 @@
    ===================================================================== */
 
 /* ---------- 1. VARIÁVEIS ---------- */
+/* Paleta oficial do design system do site (Sprint 4 — Integração):
+   Amarelo Vivo #FFC83B · Laranja Amigável #FF7A59 · Azul Céu #4EA8DE
+   Verde Turquesa #2EC4B6 · Creme Suave #FFF9E6 · Azul Noturno #1E293B
+   Os nomes das variáveis abaixo (--sol, --coral, --menta…) foram mantidos
+   do MVP para não quebrar nada; só os valores de cor mudaram para os
+   tons oficiais. --azul-link é um tom mais escuro do Azul Céu, usado
+   só em texto/links sobre fundo claro, para manter contraste ≥ 4.5:1. */
 :root {
-  --ink: #1B2350;
-  --ink-suave: #4A5280;
-  --azul: #2F5BFF;
-  --azul-claro: #E4ECFF;
-  --ceu: #EAF3FF;
-  --sol: #FFC42E;
-  --sol-claro: #FFF3CF;
-  --menta: #22B07D;
-  --menta-escura: #0F7A54;
-  --menta-clara: #DDF5EA;
-  --coral: #FF5A5F;
-  --coral-escura: #C8323A;
-  --coral-clara: #FFE3E0;
-  --violeta: #7B4DFF;
-  --violeta-clara: #ECE6FF;
+  --ink: #1E293B;            /* Azul Noturno */
+  --ink-suave: #47536B;
+  --azul: #4EA8DE;           /* Azul Céu */
+  --azul-link: #1C6EA4;      /* Azul Céu escurecido, só para texto/links */
+  --azul-claro: #E4F3FC;
+  --ceu: #EAF6FC;
+  --sol: #FFC83B;            /* Amarelo Vivo */
+  --sol-claro: #FFF9E6;      /* Creme Suave */
+  --menta: #2EC4B6;          /* Verde Turquesa */
+  --menta-escura: #1C8377;
+  --menta-clara: #DFF7F3;
+  --coral: #FF7A59;          /* Laranja Amigável */
+  --coral-escura: #D9531F;   /* tom escuro, só para texto/ícone branco */
+  --coral-clara: #FFE4DB;
+  --violeta: #4A5A78;        /* variante neutra do Azul Noturno (sem roxo na paleta oficial) */
+  --violeta-clara: #E7EAF0;
   --branco: #fff;
 
   --raio-g: 28px;
@@ -38,6 +46,9 @@
   --f-titulo: 'Baloo 2', 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
   --f-texto: 'Nunito', 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
   --topo-h: 68px;
+
+  /* Grid de 12 colunas do site (usado nos cards de "O que é privacidade") */
+  --grid-gap: 1rem;
 }
 
 /* ---------- 2. BASE ---------- */
@@ -56,7 +67,7 @@ h2 { font-weight: 800; font-size: clamp(1.9rem, 4.4vw, 2.9rem); }
 h3 { font-weight: 800; font-size: 1.4rem; }
 p { margin: 0 0 1rem; max-width: 62ch; }
 ul, ol { margin: 0; padding: 0; }
-a { color: var(--azul); }
+a { color: var(--azul-link); }
 strong { font-weight: 800; }
 
 :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 6px; }
@@ -82,6 +93,15 @@ strong { font-weight: 800; }
 .sub { margin: 3rem 0 1.2rem; font-size: 1.6rem; }
 .card { background: var(--branco); border: var(--linha); border-radius: var(--raio-m); box-shadow: var(--pop); }
 
+/* Grid de 12 colunas do site (design system, Sprint 4). Filhos diretos
+   ocupam 12/12 (empilhados) por padrão; os breakpoints abaixo reduzem
+   o "span" para formar 2, 3 ou 4 colunas conforme o espaço disponível. */
+.grid12 { display: grid; gap: var(--grid-gap); grid-template-columns: repeat(12, 1fr); }
+.grid12 > * { grid-column: span 12; }
+@media (min-width: 640px) { #conceitos.grid12 > * { grid-column: span 6; } }
+@media (min-width: 760px) { #extras.grid12 > *, #listaPerigos.grid12 > * { grid-column: span 4; } }
+@media (min-width: 900px) { #conceitos.grid12 > * { grid-column: span 3; } }
+
 /* ---------- 4. BOTÕES ---------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
@@ -94,7 +114,7 @@ strong { font-weight: 800; }
 }
 .btn:hover { transform: translateY(-2px); box-shadow: 0 7px 0 var(--ink); }
 .btn:active { transform: translateY(5px); box-shadow: 0 0 0 var(--ink); }
-.btn--azul { background: var(--azul); color: #fff; }
+.btn--azul { background: var(--ink); color: #fff; }
 .btn--branco { background: #fff; }
 .btn--coral { background: var(--coral-escura); color: #fff; }
 .btn--pequeno { min-height: 44px; font-size: 1rem; padding: .4rem 1.2rem; }
@@ -105,7 +125,7 @@ strong { font-weight: 800; }
 .marca { display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; color: var(--ink); }
 .marca__icone { width: 44px; height: 44px; flex: none; }
 .marca__nome { font: 800 1.6rem var(--f-titulo); }
-.marca__nome span { color: var(--azul); }
+.marca__nome span { color: var(--azul-link); }
 
 .menu ul { list-style: none; display: flex; gap: .15rem; }
 .menu a { display: block; padding: .45rem .85rem; border-radius: 999px; font-weight: 800; font-size: 1rem; color: var(--ink); text-decoration: none; border: 2.5px solid transparent; }
@@ -221,7 +241,7 @@ strong { font-weight: 800; }
 .regra.is-aberta .regra__dica { display: block; animation: abre .2s ease-out; }
 @keyframes abre { from { transform: translateY(-6px); opacity: 0; } to { transform: none; opacity: 1; } }
 
-.extras { display: grid; gap: 1rem; }
+.extras { display: grid; gap: 1rem; } /* colunas: ver .grid12 */
 .extra { padding: 1.3rem 1.4rem; }
 .extra__icone { font-size: 2.2rem; line-height: 1; margin-bottom: .5rem; display: block; }
 .extra h4 { font: 800 1.25rem var(--f-titulo); margin: 0 0 .4rem; }
@@ -229,7 +249,7 @@ strong { font-weight: 800; }
 .extra__como { display: inline-block; padding: .3rem .8rem; background: var(--menta-clara); border: 2px solid var(--menta-escura); color: var(--ink); border-radius: 10px; font-weight: 800; font-size: .92rem; }
 
 /* ---------- 10. CONCEITOS ---------- */
-.conceitos { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+.conceitos { display: grid; gap: 1rem; } /* colunas: ver .grid12 */
 .conceito { padding: 1.3rem; }
 .conceito__icone { display: grid; place-items: center; width: 58px; height: 58px; font-size: 1.9rem; border: var(--linha); border-radius: 16px; margin-bottom: .8rem; }
 .conceito--azul .conceito__icone { background: var(--azul-claro); }
@@ -240,14 +260,14 @@ strong { font-weight: 800; }
 .conceito p { margin: 0; font-size: 1rem; }
 
 /* ---------- 11. PERIGOS ---------- */
-.perigos { display: grid; gap: 1.1rem; align-items: start; }
+.perigos { display: grid; gap: 1.1rem; align-items: start; } /* colunas: ver .grid12 */
 .perigo { background: #fff; border: var(--linha); border-radius: var(--raio-m); box-shadow: var(--pop); }
 .perigo summary { list-style: none; cursor: pointer; padding: 1.3rem 1.3rem 1rem; display: block; border-radius: var(--raio-m); }
 .perigo summary::-webkit-details-marker { display: none; }
 .perigo__icone { font-size: 2.3rem; line-height: 1; display: block; margin-bottom: .5rem; }
 .perigo h3 { font-size: 1.35rem; margin-bottom: .4rem; }
 .perigo__resumo { font-size: 1rem; margin-bottom: .7rem; }
-.perigo__tag { display: inline-block; padding: .25rem .7rem; background: #FFE9C7; border: 2px solid #B86A00; border-radius: 10px; font-weight: 800; font-size: .88rem; }
+.perigo__tag { display: inline-block; padding: .25rem .7rem; background: var(--coral-clara); border: 2px solid var(--coral-escura); color: var(--ink); border-radius: 10px; font-weight: 800; font-size: .88rem; }
 .perigo__mais-btn { display: block; margin-top: .8rem; font-weight: 800; color: var(--azul); font-size: .98rem; }
 .perigo[open] .perigo__mais-btn::after { content: " ▲"; }
 .perigo:not([open]) .perigo__mais-btn::after { content: " ▼"; }
@@ -352,8 +372,6 @@ strong { font-weight: 800; }
 
 /* tablet+ */
 @media (min-width: 760px) {
-  .extras { grid-template-columns: repeat(3, 1fr); }
-  .perigos { grid-template-columns: repeat(3, 1fr); }
   .sos { grid-template-columns: auto 1fr auto; }
   .ajuda__card { grid-template-columns: auto 1fr; }
   .rodape__grid { grid-template-columns: 1.4fr 1fr 1.4fr; }
